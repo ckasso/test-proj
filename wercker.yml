@@ -1,8 +1,8 @@
 box:
-id: store/oracle/serverjre
-username: $DOCKER_USERNAME
-password: $DOCKER_PASSWORD
-tag: 8
+  id: store/oracle/serverjre
+  username: $DOCKER_USERNAME
+  password: $DOCKER_PASSWORD
+  tag: 8
 
 # this pipeline does not do much
 build:
