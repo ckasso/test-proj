@@ -7,6 +7,6 @@ box:
 # this pipeline does not do much
 build:
   steps: 
-    name: Build
+    name: build
     code: |
       echo "Hello World!"
