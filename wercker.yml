@@ -1,8 +1,40 @@
-box: ubuntu
+box: alpine
+
+build:
+  steps:
+
+echoa:
+  steps:
+    - script:
+        name: echo AA
+        code: sleep 5 && echo 'AA' > forward.txt
+
+echob:
+  steps:
+    - script:
+        name: echo BB
+        code: sleep 8 && echo 'BB' > forward.txt
+
+readfile-a:
+  steps:
+    - script:
+        name: read forward.txt
+        code: cat echoa/forward.txt
+
+readfile-b:
+  steps:
+    - script:
+        name: read forward.txt
+        code: cat echob/forward.txt
+
+
+
+
+#box: ubuntu
 
 # this pipeline does not do much
-build:
-  steps: 
-    - script:
-      name: step one
-      code: echo "Hello World"
+#build:
+#  steps: 
+#    - script:
+#      name: step one
+#      code: echo "Hello World"
