@@ -7,13 +7,17 @@ echoa:
   steps:
     - script:
         name: echo AA
-        code: sleep 5 && echo 'AA' > forward.txt
+        code: |
+            echo $WERCKER_REPORT_ARTIFACTS_DIR
+            sleep 1 && echo 'AA' > forward.txt
 
 echob:
   steps:
     - script:
         name: echo BB
-        code: sleep 8 && echo 'BB' > forward.txt
+        code: |
+            echo $WERCKER_REPORT_ARTIFACTS_DIR
+            sleep 3 && echo 'BB' > forward.txt
 
 readfile-a:
   steps:
