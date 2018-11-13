@@ -14,6 +14,7 @@ echoa:
         code: |
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 1 && echo 'AA' > forward.txt
+            ls -la
 
 echob:
   steps:
@@ -22,6 +23,7 @@ echob:
         code: |
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 3 && echo 'BB' > forward.txt
+            ls -la
 
 #readfile-a:
 #  steps:
