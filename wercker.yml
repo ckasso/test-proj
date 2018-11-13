@@ -15,6 +15,13 @@ echoa:
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 1 && echo 'AA' > forward.txt
             ls -la
+    - script:
+        name: echo AA-3
+        code: |
+            echo "WERCKER_ROOT: " $WERCKER_ROOT  
+            echo $PWD
+            echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
+            cat forward.txt
 
 echob:
   steps:
@@ -24,6 +31,7 @@ echob:
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 3 && echo 'BB' > forward.txt
             ls -la
+            echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
 
 #readfile-a:
 #  steps:
