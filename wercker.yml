@@ -6,7 +6,11 @@ build:
 echoa:
   steps:
     - script:
-        name: echo AA
+        name: echo AA-1
+        code: |
+            echo "WERCKER_ROOT: " $WERCKER_ROOT    
+    - script:
+        name: echo AA-2
         code: |
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 1 && echo 'AA' > forward.txt
@@ -19,17 +23,17 @@ echob:
             echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 3 && echo 'BB' > forward.txt
 
-readfile-a:
-  steps:
-    - script:
-        name: read forward.txt
-        code: cat echoa/forward.txt
+#readfile-a:
+#  steps:
+#    - script:
+#        name: read forward.txt
+#       code: cat echoa/forward.txt
 
-readfile-b:
-  steps:
-    - script:
-        name: read forward.txt
-        code: cat echob/forward.txt
+#readfile-b:
+#  steps:
+#    - script:
+#        name: read forward.txt
+#        code: cat echob/forward.txt
 
 
 
