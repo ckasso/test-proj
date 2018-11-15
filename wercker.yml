@@ -8,7 +8,15 @@ echoa:
     - script:
         name: echo AA-1
         code: |
-            echo "WERCKER_ROOT: " $WERCKER_ROOT    
+            echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
+            ls -la $WERCKER_CACHE_DIR
+            if [ -f "$WERCKER_CACHE_DIR/ttt" ]; then
+                debug "ttt found in cache"
+            else
+                debug "ttt not found in cache, will download"
+                touch $WERCKER_CACHE_DIR/ttt
+            fi
+            
     - script:
         name: echo AA-2
         code: |
@@ -24,6 +32,8 @@ echoa:
             ls $WERCKER_OUTPUT_DIR
             cat forward.txt
             mv forward.txt $WERCKER_OUTPUT_DIR
+            echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
+            ls -la $WERCKER_CACHE_DIR
 
 echob:
   steps:
@@ -35,6 +45,8 @@ echob:
             ls -la
             echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
             ls $WERCKER_OUTPUT_DIR
+            echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
+            ls -la $WERCKER_CACHE_DIR
 
 echoc:
   steps:
