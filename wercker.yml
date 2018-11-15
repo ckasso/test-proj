@@ -32,6 +32,12 @@ echoa:
             ls $WERCKER_OUTPUT_DIR
             cat forward.txt
             mv forward.txt $WERCKER_OUTPUT_DIR
+            echo "CWD: " $CWD
+            ls -la
+            echo $WERCKER_REPORT_ARTIFACTS_DIR
+            ls -la $WERCKER_REPORT_ARTIFACTS_DIR
+            echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
+            ls $WERCKER_OUTPUT_DIR
             echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
             ls -la $WERCKER_CACHE_DIR
 
@@ -40,9 +46,11 @@ echob:
     - script:
         name: echo BB
         code: |
-            echo $WERCKER_REPORT_ARTIFACTS_DIR
             sleep 3 && echo 'BB' > forward.txt
+            echo "CWD: " $CWD
             ls -la
+            echo $WERCKER_REPORT_ARTIFACTS_DIR
+            ls -la $WERCKER_REPORT_ARTIFACTS_DIR
             echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
             ls $WERCKER_OUTPUT_DIR
             echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
@@ -53,8 +61,11 @@ echoc:
     - script:
         name: echo CC
         code: |
+            echo 'CC' > CC.txt  
+            echo "CWD: " $CWD
+            ls -la
             echo $WERCKER_REPORT_ARTIFACTS_DIR
-            echo 'CC' > CC.txt   
+            ls -la $WERCKER_REPORT_ARTIFACTS_DIR
             echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
             ls $WERCKER_OUTPUT_DIR
             echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
