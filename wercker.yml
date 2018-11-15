@@ -54,7 +54,11 @@ echoc:
         name: echo CC
         code: |
             echo $WERCKER_REPORT_ARTIFACTS_DIR
-            sleep 3 && echo 'CC' > CC.txt            
+            echo 'CC' > CC.txt   
+            echo "WERCKER_OUTPUT_DIR: " $WERCKER_OUTPUT_DIR
+            ls $WERCKER_OUTPUT_DIR
+            echo "WERCKER_CACHE_DIR: " $WERCKER_CACHE_DIR  
+            ls -la $WERCKER_CACHE_DIR
             
 
 #readfile-a:
